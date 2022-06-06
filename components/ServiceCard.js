@@ -18,6 +18,7 @@ const ServiceCard = ({ title, subtitle, description, image, link }) => {
               border-radius: 10px;
               overflow: hidden;
               margin: 10px;
+              flex: 1;
           }
           .card-header {
               background-image: url('${image}');
