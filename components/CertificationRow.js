@@ -140,6 +140,9 @@ const CertificationRow = (props) => {
         .certification-row.right .certification-item:after {
           right: -9px;
         }
+        .text-wrapper {
+          flex: 1;
+        }
         .text-wrapper > p {
           margin: 0 0 0 20px;
         }
