@@ -13,7 +13,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/TitilliumWeb-Bold.ttf"
+            href="/fonts/TitilliumWeb-SemiBold.ttf"
             as="font"
             crossOrigin=""
           />

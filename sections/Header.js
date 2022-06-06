@@ -14,7 +14,7 @@ const Header = (props) => {
 
   useEffect(() => {
     fetchImage(urlFor(props.image).url())
-  }, [])
+  }, [props.image])
 
   const fetchImage = (src) => {
     const image = new Image()
@@ -30,6 +30,8 @@ const Header = (props) => {
     <header>
       <div className="content">
         <h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="logo" src="/logo-simple.svg" alt="logo" />
           speak<span>&</span>fly
         </h1>
         <p>Na krídlach angličtiny</p>
@@ -53,7 +55,7 @@ const Header = (props) => {
           header {
               background-image: url('${currentImage}');
               background-size: cover;
-              background-position-x: 80%;
+              background-position-x: center;
               background-position-y: center;
               font-family: 'Titillium Web', sans-serif;
               position: relative;
@@ -79,6 +81,13 @@ const Header = (props) => {
           h1 {
             font-size: 64px;
             font-weight: bold;
+            position: relative;
+          }
+          .logo {
+            width: 100px;
+            height: 56px;
+            position: absolute;
+            left: -48px;
           }
           h1 > span {
             color: #e45d73;
@@ -138,6 +147,11 @@ const Header = (props) => {
             h1 {
               font-size: 112px;
               margin-bottom: 20px;
+            }
+            .logo {
+              width: 180px;
+              height: 100px;
+              left: -88px;
             }
             p {
               font-size: 32px;
