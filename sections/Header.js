@@ -62,8 +62,8 @@ const Header = (props) => {
           }
           .content {
             width: 100%;
-            height: 90vh;
-            min-height: 500px;
+            height: 80vh;
+            min-height: 450px;
             max-height: 1000px;
             backdrop-filter: ${isLoading ? 'blur(20px)' : 'blur(0px)'};
             -webkit-backdrop-filter: ${isLoading ? 'blur(20px)' : 'blur(0px)'};
