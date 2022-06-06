@@ -31,7 +31,7 @@ const Services = (props) => {
             flex-direction: column;
             padding: 10px;
           }
-          @media only screen and (min-width: 765px) {
+          @media only screen and (min-width: 800px) {
               .services-wrapper {
                 flex-direction: row;
               }

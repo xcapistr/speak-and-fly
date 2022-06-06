@@ -1,4 +1,4 @@
-const ServiceCard = ({ title, subtitle, description, image, link }) => {
+const ServiceCard = ({ title, subtitle, description, image }) => {
   return (
     <div className="service-card">
       <div className="card-header">
@@ -61,7 +61,7 @@ const ServiceCard = ({ title, subtitle, description, image, link }) => {
               flex-direction: row-reverse; 
             }
           }
-          @media only screen and (min-width: 765px) {
+          @media only screen and (min-width: 800px) {
               .service-card {
                 display: block;
               }
