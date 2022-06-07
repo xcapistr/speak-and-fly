@@ -1,7 +1,7 @@
 const ContactForm = () => {
   return (
     <form className="contact-form">
-      <h3>Kontaktujte ma</h3>
+      <h3>Kontaktný formulár</h3>
       <div className="column">
         <p>Meno</p>
         <input type="text" autoCapitalize="words" placeholder="Meno a priezvisko" />

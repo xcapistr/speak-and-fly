@@ -17,7 +17,6 @@ import { Navigation, Footer } from '../components'
 const Home = (props) => (
   <div
     className={styles.container}
-    style={{ fontFamily: "'Titillium Web', sans-serif" }}
   >
     <Head>
       <title>Speak & fly</title>

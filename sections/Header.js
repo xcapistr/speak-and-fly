@@ -27,7 +27,7 @@ const Header = (props) => {
   }
 
   return (
-    <header>
+    <header id="home">
       <div className="content">
         <h1>
           {/* eslint-disable-next-line @next/next/no-img-element */}

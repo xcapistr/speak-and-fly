@@ -14,7 +14,7 @@ const ServiceCard = ({ title, subtitle, description, image }) => {
       </div>
       <style jsx>{`
           .service-card {
-              box-shadow: 0 2px 10px #243E7833;
+              box-shadow: 0 5px 20px #243E7833;
               border-radius: 10px;
               overflow: hidden;
               margin: 10px;

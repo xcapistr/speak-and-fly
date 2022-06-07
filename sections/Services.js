@@ -22,7 +22,7 @@ const Services = (props) => {
       <style jsx>
         {`
           #services {
-
+            padding-top: 100px;
           }
           .services-wrapper {
             max-width: 1000px;
