@@ -48,6 +48,7 @@ const Footer = () => {
           margin: 0 auto;
           display: flex;
           padding: 40px 0 50px;
+          flex-direction: column;
         }
         .footer-nav > div {
           padding: 20px;
@@ -55,6 +56,9 @@ const Footer = () => {
         .description,
         .contacts {
           flex: 4;
+        }
+        .footer-nav > .links, .footer-nav > .contacts {
+            padding-left: 40px;
         }
         .links {
           flex: 2;
@@ -66,8 +70,7 @@ const Footer = () => {
         }
         .description > p {
           text-align: left;
-          padding-left: 20px;
-          width: 80%;
+          padding: 0 20px;
           margin: 6px 0;
         }
         .contacts > ul > li {
@@ -104,6 +107,21 @@ const Footer = () => {
         .copyright > p {
           margin: 0;
           text-align: center;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .footer-nav {
+            flex-direction: row;
+          }
+          .footer-nav > .links, .footer-nav > .contacts {
+            padding-left: 20px;
+          }
+        }
+
+        @media only screen and (min-width: 1080px) {
+          .description > p {
+            width: 80%;
+          }
         }
       `}</style>
     </footer>
