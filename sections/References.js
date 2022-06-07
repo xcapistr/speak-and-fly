@@ -17,7 +17,10 @@ const References = (props) => {
       </div>
       <style jsx>{`
           section {
-              background-color: #eef;
+              background-color: #eee;
+              background-image: url('/airport.png');
+              background-size: cover;
+              background-position: center;
           }
             .references-wrapper {
                 display: flex;
