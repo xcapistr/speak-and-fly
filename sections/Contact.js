@@ -6,35 +6,31 @@ const Contact = (props) => {
       <h2>Kontakt</h2>
       <div className="contact-wrapper">
         <div>
-          <ul className="contact-info">
-            <li>
+          <div className="contact-info">
+            <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/location.svg" alt="location" />
               </div>
+              <h3>Pôsobisko</h3>
               <p>
-                Sunt non irure dolore sunt in amet qui amet voluptate in veniam
-                officia officia.
+                Pôsobím <b>v Poprade</b>, ale môj pracovný okruh je oveľa väčší a nemám problém viesť kurzy v mieste sídla klienta.
               </p>
-            </li>
-            <li>
+            </div>
+            <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/mail.svg" alt="email" />
               </div>
-              <p>jkhkjh@kjhkj.sk</p>
-            </li>
-            <li>
+              <h3>Email</h3>
+              <p>palockova.betty@gmail.com</p>
+            </div>
+            <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/call.svg" alt="phone" />
               </div>
+              <h3>Telefón</h3>
               <p>+421 879 765 890</p>
-            </li>
-            <li>
-              <div className="icon-wrapper">
-                <img src="/logo-linkedin.svg" alt="phone" />
-              </div>
-              <p>LinkedIn</p>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <div>
           <ContactForm />
@@ -53,53 +49,55 @@ const Contact = (props) => {
         }
         .contact-wrapper {
           margin: 0 auto;
-          max-width: 800px;
-          display: flex;
-          flex-direction: column;
+          max-width: 1080px;
         }
         .contact-wrapper > * {
           flex: 1;
           padding: 20px;
         }
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0 20px;
+        .contact-info {
+          padding: 0;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
         }
-        li {
+        .contact-item {
           display: flex;
           flex-direction: column;
-          margin: 20px 0 40px;
+          margin: 20px 20px 40px;
           align-items: center;
+          flex: 1;
+          max-width: 300px;
         }
-        li > p {
-          margin: 0;
-          line-height: 25px;
+        .contact-item > h3 {
+          margin: 10px 0;
+          font-size: 20px;
+          text-transform: uppercase;
+        }
+        .contact-item > p {
+          margin: 10px 0 0;
+          text-align: center;
+          color: #fffb;
+        }
+        .contact-item > p > b {
+          color: #fff;
         }
         .icon-wrapper {
-          margin: 0 0 20px 0;
-          padding: 10px;
-          border: 2px solid white;
+          padding: 17px;
           border-radius: 50%;
-          width: 49px;
-          height: 49px;
+          width: 70px;
+          height: 70px;
+          background-color: #8c8bbb;
         }
         .icon-wrapper > img {
-          width: 25px;
-          height: 25px;
+          width: 35px;
+          height: 35px;
         }
-        @media only screen and (min-width: 568px) {
-          .contact-wrapper {
+        @media only screen and (min-width: 768px) {
+          .contact-info {
             flex-direction: row;
-            align-items: center;
-          }
-          li {
-            display: flex;
-            flex-direction: row;
-            margin: 20px 0 40px;
-          }
-          .icon-wrapper {
-            margin: 0 20px 0 0;
+            align-items: flex-start;
+            justify-content: space-between;
           }
         }
       `}</style>
