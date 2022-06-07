@@ -42,9 +42,11 @@ const Navigation = (props) => {
 
   return (
     <div id="navigation">
-      <div className="logo">
-        <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
-      </div>
+      <Link href="/#home" className="logo">
+        <a>
+          <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
+        </a>
+      </Link>
       <nav id="desktop-navigation">
         <ul>
           {navItems.map((n, i) => (
