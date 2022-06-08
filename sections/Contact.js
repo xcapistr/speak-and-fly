@@ -37,14 +37,11 @@ const Contact = (props) => {
         </div>
       </div>
       <style jsx>{`
+        h2 {
+          color: #fff;
+        }
         #contact {
-          background: rgb(88, 178, 126);
-          background: radial-gradient(
-            ellipse at 120% 120%,
-            rgba(88, 178, 126, 1) 0%,
-            rgba(13, 101, 144, 1) 50%,
-            rgba(3, 31, 62, 1) 100%
-          );
+          background: #384983;
           color: white;
         }
         .contact-wrapper {
@@ -87,7 +84,7 @@ const Contact = (props) => {
           border-radius: 50%;
           width: 70px;
           height: 70px;
-          background-color: #8c8bbb;
+          background-color: #A9D0E6;
         }
         .icon-wrapper > img {
           width: 35px;

@@ -69,7 +69,7 @@ const Header = (props) => {
             -webkit-backdrop-filter: ${isLoading ? 'blur(20px)' : 'blur(0px)'};
             transition: .5s backdrop-filter linear, .5s -webkit-backdrop-filter linear; 
             background-color: #26256199;
-            background: linear-gradient( #26256199 0%, #26256199 90%, #262561ff 100%);
+            background: linear-gradient( #26256133 0%, #26256157 90%, #2d3083 100%);
             padding: 60px 20px 95px;
             z-index: 0;
             display: flex;
@@ -122,7 +122,7 @@ const Header = (props) => {
 
           .mask > div:nth-child(2) {
             width: 110px;
-            background-color: #262561;
+            background-color: #2d3083;
             border-radius: 0 0 35px 35px;
             height: 35px;
           }
@@ -144,6 +144,9 @@ const Header = (props) => {
           }
 
           @media only screen and (min-width: 765px) {
+            .content {
+              height: 90vh;
+            }
             h1 {
               font-size: 112px;
               margin-bottom: 20px;

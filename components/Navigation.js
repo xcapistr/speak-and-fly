@@ -76,7 +76,7 @@ const Navigation = (props) => {
       </button>
       <style jsx>{`
         #navigation {
-          background-color: #262561;
+          background-color: #25325D;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -98,7 +98,7 @@ const Navigation = (props) => {
           margin: 0 20px;
         }
         #mobile-navigation {
-          background-color: #262561;
+          background-color: #25325D;
           width: 100vw;
           height: 100vh;
           position: fixed;

@@ -41,7 +41,7 @@ const Footer = () => {
       <style jsx>{`
         footer {
           color: #ccc;
-          background-color: #333;
+          background-color: #413e4b;
         }
         .footer-nav {
           max-width: 1080px;
@@ -101,7 +101,7 @@ const Footer = () => {
         }
         .copyright {
           width: 100%;
-          background-color: #222;
+          background-color: #302e37;
           padding: 25px;
         }
         .copyright > p {

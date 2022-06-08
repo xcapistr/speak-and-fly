@@ -35,7 +35,7 @@ const ContactForm = () => {
         textarea {
           width: 100%;
           border-radius: 6px;
-          background-color: #fffb;
+          background-color: #fffd;
           border: none;
           padding: 10px 16px;
           margin: 2px 0 10px;
@@ -62,7 +62,7 @@ const ContactForm = () => {
           width: 100%;
           max-width: 100%;
           color: white;
-          background: #262561;
+          background: #A9D0E6;
           border-radius: 6px;
           padding: 15px;
           border: none;

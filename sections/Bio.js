@@ -7,7 +7,7 @@ const urlFor = (source) => imageUrlBuilder(client).image(source)
 
 const BioSection = (props) => {
   return (
-    <section id="bio">
+    <section id="bio" className="bio-section">
       <h2>{props.title.sk}</h2>
       <div className="bio-row">
         <div className="image-wrapper">
@@ -48,15 +48,14 @@ const BioSection = (props) => {
         </div>
       </div>
       <style jsx>{`
-        #bio {
-          background-color: #eef;
+        .bio-section {
+          background-color: #f8f4fc;
           padding-bottom: 0;
+          color: #25325D;
         }
+
         .wrapper {
-          /* background: rgb(36,62,120);
-          background: linear-gradient(90deg, rgba(36,62,120,1) 0%, rgba(16,37,82,1) 100%); */
-          background: rgb(88,178,126);
-          background: radial-gradient(ellipse at 120% 120%, rgba(88,178,126,1) 0%, rgba(13,101,144,1) 50%, rgba(3,31,62,1) 100%);
+          background: #384983;
           color: #fff;
         }
         .bio-row {

@@ -32,6 +32,9 @@ const Certification = (props) => {
         ))}
       </div>
       <style jsx>{`
+        .certification-section {
+          background-color: #fff;
+        }
         .certification-list {
           max-width: 1000px;
           margin: 0 auto;
@@ -44,8 +47,8 @@ const Certification = (props) => {
           width: 2px;
           transform: translate(-0.5px);
           height: 100%;
-          background-color: #e45d73;
-          z-index: -1;
+          background-color: #A9D0E6;
+          z-index: 1;
         }
         @media only screen and (min-width: 568px) {
           .certification-list:before {

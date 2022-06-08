@@ -86,9 +86,10 @@ const CertificationRow = (props) => {
         }
         .certification-row > div:nth-child(2) {
           width: 15px;
+          z-index: 1;
         }
         .year {
-          background-color: rgb(36, 62, 120);
+          background-color: #384983;
           color: #fff;
           padding: 10px 20px;
           float: right;
@@ -100,7 +101,7 @@ const CertificationRow = (props) => {
         }
         .year:after {
           content: ' ';
-          background-color: rgb(36, 62, 120);
+          background-color: #384983;
           width: 15px;
           height: 15px;
           transform: rotate(45deg);
@@ -113,7 +114,7 @@ const CertificationRow = (props) => {
           left: -7px;
         }
         .certification-item {
-          background-color: #eee;
+          background-color: #f8f4fc;
           display: flex;
           align-items: center;
           border-radius: 10px;
@@ -121,13 +122,15 @@ const CertificationRow = (props) => {
           position: relative;
           float: left;
           width: 100%;
+          z-index: 1;
+          color: #25325D;
         }
         .certification-row.right .certification-item {
           float: right;
         }
         .certification-item:after {
           content: ' ';
-          background-color: #eee;
+          background-color: #f8f4fc;
           width: 20px;
           height: 20px;
           transform: rotate(45deg);
@@ -149,10 +152,11 @@ const CertificationRow = (props) => {
         .timeline-point {
           width: 13px;
           height: 13px;
-          background-color: #e45d73;
+          background-color: #A9D0E6;
           border-radius: 50%;
           border: 2px solid #fff;
           margin: 0 auto;
+          z-index: 1;
         }
 
         .certification-row-mobile {
