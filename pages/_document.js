@@ -30,6 +30,8 @@ class MyDocument extends Document {
           <meta name="twitter:title" content="Speak&fly - na krídlach angličtiny" />
           <meta name="twitter:description" content="Speak&fly poskytuje profesionálne kurzy anglického jazyka zamerané na výučbu odbornej angličtiny, odborné preklady a tlmočenie." />
           <meta property="twitter:image" content="https://speak-and-fly.vercel.app/social.png" />
+
+          <meta name="theme-color" content="#25325d" />
         </Head>
         <body>
           <Main />
