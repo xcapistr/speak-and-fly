@@ -1,17 +1,52 @@
-const ContactForm = () => {
+import { useState } from 'react'
+
+const ContactForm = ({secret}) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const response = await fetch(`/api/sendMail`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        name,
+        message,
+        secret
+      }),
+    })
+    console.log(response)
+  }
   return (
-    <form className="contact-form">
+    <form className="contact-form" onSubmit={handleSubmit}>
       <h3>Kontaktný formulár</h3>
       <div className="column">
         <p>Meno</p>
-        <input type="text" autoCapitalize="words" placeholder="Meno a priezvisko" />
+        <input
+          type="text"
+          autoCapitalize="words"
+          placeholder="Meno a priezvisko"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className="column">
         <p>Email</p>
-        <input type="email" placeholder="vasemail@gmail.com" />
+        <input
+          type="email"
+          placeholder="vasemail@gmail.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <p>Správa</p>
-      <textarea rows={5} placeholder="Napíšte text správy" />
+      <textarea
+        rows={5}
+        placeholder="Napíšte text správy"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
       <button type="submit">Odoslať</button>
       <style jsx>{`
         .contact-form {
@@ -24,7 +59,7 @@ const ContactForm = () => {
           font-size: 20px;
         }
         .column {
-          display: inherit
+          display: inherit;
         }
         p {
           margin: 0 0 0 2px;
@@ -62,7 +97,7 @@ const ContactForm = () => {
           width: 100%;
           max-width: 100%;
           color: white;
-          background: #A9D0E6;
+          background: #a9d0e6;
           border-radius: 6px;
           padding: 15px;
           border: none;

@@ -42,7 +42,7 @@ const Contact = (props) => {
           </div>
         </div>
         <div>
-          <ContactForm />
+          <ContactForm secret={props.secret}/>
         </div>
       </div>
       <style jsx>{`
