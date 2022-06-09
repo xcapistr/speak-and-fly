@@ -17,9 +17,6 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
-
-          <meta name="title" content="Speak&fly - na krídlach angličtiny" />
-          <meta name="description" content="Speak&fly poskytuje profesionálne kurzy anglického jazyka zamerané na výučbu odbornej angličtiny, odborné preklady a tlmočenie." />
           
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Speak&fly - na krídlach angličtiny" />
@@ -33,8 +30,6 @@ class MyDocument extends Document {
           <meta name="twitter:title" content="Speak&fly - na krídlach angličtiny" />
           <meta name="twitter:description" content="Speak&fly poskytuje profesionálne kurzy anglického jazyka zamerané na výučbu odbornej angličtiny, odborné preklady a tlmočenie." />
           <meta property="twitter:image" content="https://speak-and-fly.vercel.app/social.png" />
-          
-          <meta name="keywords" content="letecka anglictina, kurzy leteckej anglictiny, ICAO anglictina, anglictina pre pilotov, tlmocenie, anglictina pre personal letiska, anglictina pre palubny personal, letusky a stewardov, kurzy, anglictina pre pilotov a riadiach letovej prevazdky, technicka anglictina, kurzy technickej anglictiny, kurzy anglickeho jazyka, preklady, technicke preklady, AB initio, obchodna anglictina, vseobecna anglictina, alzbeta palockova, mgr. alzbeta palockova, icao, icao english, aviation english, aviation english courses" />
         </Head>
         <body>
           <Main />

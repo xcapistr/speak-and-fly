@@ -15,23 +15,25 @@ import {
 import { Navigation, Footer } from '../components'
 
 const Home = (props) => (
-  <div
-    className={styles.container}
-  >
+  <div className={styles.container}>
     <Head>
       <title>Speak & fly</title>
       {/* 50 and 160 characters */}
+      <meta name="title" content="Speak&fly - na krídlach angličtiny" />
       <meta
         name="description"
-        content="Kurzy anglického jazyka, testovanie, tlmočenie a preklady"
+        content="Speak&fly poskytuje profesionálne kurzy anglického jazyka zamerané na výučbu odbornej angličtiny, odborné preklady a tlmočenie."
       />
-      <meta name="keywords" content="HTML, CSS, JavaScript" />
+      <meta
+        name="keywords"
+        content="letecka anglictina, kurzy leteckej anglictiny, ICAO anglictina, anglictina pre pilotov, tlmocenie, anglictina pre personal letiska, anglictina pre palubny personal, letusky a stewardov, kurzy, anglictina pre pilotov a riadiach letovej prevazdky, technicka anglictina, kurzy technickej anglictiny, kurzy anglickeho jazyka, preklady, technicke preklady, AB initio, obchodna anglictina, vseobecna anglictina, alzbeta palockova, mgr. alzbeta palockova, icao, icao english, aviation english, aviation english courses"
+      />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.svg" />
     </Head>
 
     <Navigation />
-    <Navigation fixed/>
+    <Navigation fixed />
 
     <Header {...props.header} />
 

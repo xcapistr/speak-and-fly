@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Navigation = ({ fixed }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true)
@@ -47,11 +48,9 @@ const Navigation = ({ fixed }) => {
       }}
     >
       {fixed ? (
-        <Link href="/#home" className="logo">
-          <a>
-            <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
-          </a>
-        </Link>
+        <AnchorLink href="#home" className="logo">
+          <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
+        </AnchorLink>
       ) : (
         <div></div>
       )}
@@ -59,9 +58,7 @@ const Navigation = ({ fixed }) => {
         <ul>
           {navItems.map((n, i) => (
             <li key={`${i}-${n.label}`}>
-              <Link href={n.href}>
-                <a>{n.label}</a>
-              </Link>
+              <AnchorLink href={n.href}>{n.label}</AnchorLink>
             </li>
           ))}
         </ul>
@@ -70,9 +67,9 @@ const Navigation = ({ fixed }) => {
         <ul>
           {navItems.map((n, i) => (
             <li key={`${i}-${n.label}`}>
-              <Link href={n.href}>
-                <a onClick={toggleMenu}>{n.label}</a>
-              </Link>
+              <AnchorLink href={n.href} onClick={toggleMenu}>
+                {n.label}
+              </AnchorLink>
             </li>
           ))}
         </ul>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import client from '../sanityClient'
 import imageUrlBuilder from '@sanity/image-url'
 import NextImage from 'next/image'
-import Link from 'next/link'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const urlFor = (source) => imageUrlBuilder(client).image(source)
 
@@ -41,16 +41,18 @@ const Header = (props) => {
         <div></div>
         <div></div>
       </div>
-      <Link href="#services">
-        <a className="arrow">
+      <AnchorLink href="#services">
+        <div className="arrow">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <NextImage
             src="/arrowbtn.svg"
             alt="continue to next section"
             width={40}
             height={40}
+            priority
           />
-        </a>
-      </Link>
+        </div>
+      </AnchorLink>
       <style jsx>{`
           header {
               background-image: url('${currentImage}');
