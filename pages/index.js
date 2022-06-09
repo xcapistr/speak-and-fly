@@ -31,6 +31,7 @@ const Home = (props) => (
     </Head>
 
     <Navigation />
+    <Navigation fixed/>
 
     <Header {...props.header} />
 

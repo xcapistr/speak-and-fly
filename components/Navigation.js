@@ -2,35 +2,33 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Navigation = (props) => {
+const Navigation = ({ fixed }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true)
   const [menuOpened, setMenuOpened] = useState(false)
 
   const toggleMenu = () => {
-    setMenuOpened(prev => {
-      document.body.style.overflow = prev ? 'unset' : 'hidden';
-      return !prev;
+    setMenuOpened((prev) => {
+      document.body.style.overflow = prev ? 'unset' : 'hidden'
+      return !prev
     })
   }
 
-  // const handleScroll = () => {
-  //   if (window.pageYOffset >= 150 && scrolledToTop) {
-  //     console.log('set to false')
-  //     setScrolledToTop(false)
-  //     return
-  //   }
-  //   if (window.pageYOffset < 150 && !scrolledToTop) {
-  //     console.log('set to true')
-  //     setScrolledToTop(true)
-  //   }
-  // }
+  const handleScroll = () => {
+    if (window.pageYOffset >= 350 && scrolledToTop) {
+      setScrolledToTop(false)
+      return
+    }
+    if (window.pageYOffset < 350 && !scrolledToTop) {
+      setScrolledToTop(true)
+    }
+  }
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll)
-  //   }
-  // }, [scrolledToTop])
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [scrolledToTop])
 
   const navItems = [
     { href: '#services', label: 'Služby' },
@@ -41,12 +39,22 @@ const Navigation = (props) => {
   ]
 
   return (
-    <div id="navigation">
-      <Link href="/#home" className="logo">
-        <a>
-          <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
-        </a>
-      </Link>
+    <div
+      id="navigation"
+      className={fixed ? 'fixed' : ''}
+      style={{
+        transform: `translateY(${scrolledToTop && fixed ? '-70px' : '0'})`,
+      }}
+    >
+      {fixed ? (
+        <Link href="/#home" className="logo">
+          <a>
+            <Image src="/logo2.svg" alt="Speak & fly" width="192" height="40" />
+          </a>
+        </Link>
+      ) : (
+        <div></div>
+      )}
       <nav id="desktop-navigation">
         <ul>
           {navItems.map((n, i) => (
@@ -62,21 +70,24 @@ const Navigation = (props) => {
         <ul>
           {navItems.map((n, i) => (
             <li key={`${i}-${n.label}`}>
-              <Link href={n.href} >
+              <Link href={n.href}>
                 <a onClick={toggleMenu}>{n.label}</a>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <button id="menu-button" className={menuOpened ? 'menu-button open' : 'menu-button'} onClick={toggleMenu}>
+      <button
+        id="menu-button"
+        className={menuOpened ? 'menu-button open' : 'menu-button'}
+        onClick={toggleMenu}
+      >
         <div></div>
         <div></div>
         <div></div>
       </button>
       <style jsx>{`
         #navigation {
-          background-color: #25325D;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -84,10 +95,15 @@ const Navigation = (props) => {
           height: 70px;
           padding: 0 10px;
           color: #fff;
-          position: fixed;
+          position: absolute;
           z-index: 5;
         }
-     
+        #navigation.fixed {
+          background-color: #25325d;
+          position: fixed;
+          transition: transform 0.3s ease-out;
+        }
+
         #desktop-navigation > ul {
           list-style: none;
           display: none;
@@ -98,7 +114,7 @@ const Navigation = (props) => {
           margin: 0 20px;
         }
         #mobile-navigation {
-          background-color: #25325D;
+          background-color: #25325d;
           width: 100vw;
           height: 100vh;
           position: fixed;
@@ -110,20 +126,20 @@ const Navigation = (props) => {
           font-size: 24px;
           visibility: hidden;
           opacity: 0;
-          transition: .2s visibility linear, .2s opacity linear;
+          transition: 0.2s visibility linear, 0.2s opacity linear;
         }
         #mobile-navigation.open {
-            visibility: visible;
-            opacity: 1;
+          visibility: visible;
+          opacity: 1;
         }
         #mobile-navigation > ul {
           list-style: none;
           padding: 0;
           text-align: center;
-          transition: .3s transform ease-out;
+          transition: 0.3s transform ease-out;
         }
         #mobile-navigation.open > ul {
-            transform: scale(1.3);
+          transform: scale(1.3);
         }
         .menu-button {
           width: 42px;
