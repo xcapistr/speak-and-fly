@@ -1,4 +1,4 @@
-import { ContactForm } from '../components'
+import { ContactForm, CopyButton } from '../components'
 
 const Contact = (props) => {
   return (
@@ -13,7 +13,8 @@ const Contact = (props) => {
               </div>
               <h3>Pôsobisko</h3>
               <p>
-                Pôsobím <b>v Poprade</b>, ale môj pracovný okruh je oveľa väčší a nemám problém viesť kurzy v mieste sídla klienta.
+                Pôsobím <b>v Poprade</b>, ale môj pracovný okruh je oveľa väčší
+                a nemám problém viesť kurzy v mieste sídla klienta.
               </p>
             </div>
             <div className="contact-item">
@@ -21,14 +22,22 @@ const Contact = (props) => {
                 <img src="/mail.svg" alt="email" />
               </div>
               <h3>Email</h3>
-              <p>palockova.betty@gmail.com</p>
+              <p>
+                <a href="mailto:palockova.betty@gmail.com">
+                  palockova.betty@gmail.com
+                </a>
+                <CopyButton text="palockova.betty@gmail.com"/>
+              </p>
             </div>
             <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/call.svg" alt="phone" />
               </div>
               <h3>Telefón</h3>
-              <p>+421 879 765 890</p>
+              <p>
+                +421 907 477 763
+                <CopyButton text="+421 907 477 763"/>
+              </p>
             </div>
           </div>
         </div>
@@ -71,7 +80,8 @@ const Contact = (props) => {
           font-size: 20px;
           text-transform: uppercase;
         }
-        .contact-item > p {
+        .contact-item > p,
+        .contact-item > a {
           margin: 10px 0 0;
           text-align: center;
           color: #fffb;
@@ -84,7 +94,7 @@ const Contact = (props) => {
           border-radius: 50%;
           width: 70px;
           height: 70px;
-          background-color: #A9D0E6;
+          background-color: #a9d0e6;
         }
         .icon-wrapper > img {
           width: 35px;
