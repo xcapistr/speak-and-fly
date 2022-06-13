@@ -29,6 +29,7 @@ const Services = (props) => {
             margin: 0 auto;
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             padding: 10px;
           }
           @media only screen and (min-width: 800px) {
