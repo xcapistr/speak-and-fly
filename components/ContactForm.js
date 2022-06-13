@@ -66,7 +66,7 @@ const ContactForm = ({ secret }) => {
         <input
           className={validations.email ? 'error' : ''}
           type="email"
-          placeholder="vasemail@gmail.com"
+          placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
