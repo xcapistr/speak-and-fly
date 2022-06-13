@@ -17,8 +17,8 @@ const Footer = () => {
             <li>Kurzy</li>
             <li>Testovanie</li>
             <li>Preklady</li>
-            <li>ICAO</li>
-            <li>ENG-NAV</li>
+            <li><a href="https://www.icao.int/" target="_blank" rel="noreferrer">ICAO</a></li>
+            <li><a href="https://eng-nav.com/" target="_blank" rel="noreferrer">ENG-NAV</a></li>
           </ul>
         </div>
         <div className="contacts">
