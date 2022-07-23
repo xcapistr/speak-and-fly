@@ -12,11 +12,11 @@ const CertificationRow = (props) => {
         <div>
           {props.year && (
             <div className="year">
-              {props.year.split(' ').map((y) => (
-                <>
+              {props.year.split(' ').map((y, i) => (
+                <p key={`${i}-${y}`}>
                   {y}
                   <br />
-                </>
+                </p>
               ))}
             </div>
           )}
@@ -45,11 +45,11 @@ const CertificationRow = (props) => {
           <div className="year-wrapper">
             <div className="timeline-point"></div>
             <div className="year">
-              {props.year.split(' ').map((y) => (
-                <>
+              {props.year.split(' ').map((y, i) => (
+                <p key={`${i}-${y}`}>
                   {y}
                   <br />
-                </>
+                </p>
               ))}
             </div>
           </div>
@@ -96,6 +96,9 @@ const CertificationRow = (props) => {
           position: relative;
           border-radius: 10px;
         }
+        .year > p {
+          margin: 0;
+        }
         .certification-row.right .year {
           float: left;
         }
@@ -123,7 +126,7 @@ const CertificationRow = (props) => {
           float: left;
           width: 100%;
           z-index: 1;
-          color: #25325D;
+          color: #25325d;
         }
         .certification-row.right .certification-item {
           float: right;
@@ -152,7 +155,7 @@ const CertificationRow = (props) => {
         .timeline-point {
           width: 13px;
           height: 13px;
-          background-color: #A9D0E6;
+          background-color: #a9d0e6;
           border-radius: 50%;
           border: 2px solid #fff;
           margin: 0 auto;

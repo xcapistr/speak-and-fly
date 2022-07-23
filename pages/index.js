@@ -1,21 +1,19 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import groq from 'groq'
 import client from '../sanityClient'
 
 import {
-  Header,
+  Hero,
   BioSection,
   Services,
   Certification,
   References,
   Contact,
 } from '../sections'
-import { Navigation, Footer } from '../components'
+import { Header, Footer } from '../components'
 
 const Home = (props) => {
-  console.log(props)
   return (
     <div className={styles.container}>
       <Head>
@@ -34,12 +32,11 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navigation />
-      <Navigation fixed />
-
-      <Header {...props.header} />
+      <Header />
+      <Header fixed />
 
       <main className={styles.main}>
+        <Hero {...props.header} />
         <Services {...props.services} />
         <BioSection {...props.bio} />
         <Certification {...props.certification} />
@@ -53,9 +50,9 @@ const Home = (props) => {
 
 const query = groq`*[_id in ["header", "services", "bio", "certification", "references"]]`
 
-Home.getInitialProps = async (context) => {
+export const getStaticProps = async () => {
   const data = await client.fetch(query)
-  return {
+  const props = {
     ...data.reduce(
       (obj, item) => ({
         ...obj,
@@ -64,6 +61,10 @@ Home.getInitialProps = async (context) => {
       {},
     ),
     secret: process.env.SECRET,
+  }
+  console.log('props', props);
+  return {
+    props,
   }
 }
 

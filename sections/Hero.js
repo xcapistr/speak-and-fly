@@ -6,7 +6,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const urlFor = (source) => imageUrlBuilder(client).image(source)
 
-const Header = (props) => {
+const Hero = (props) => {
   const [currentImage, setCurrentImage] = useState(
     urlFor(props.image).width(20).url(),
   )
@@ -168,4 +168,4 @@ const Header = (props) => {
   )
 }
 
-export default Header
+export default Hero

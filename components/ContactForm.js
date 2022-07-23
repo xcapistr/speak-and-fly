@@ -146,8 +146,8 @@ const ContactForm = ({ secret }) => {
         button {
           width: 100%;
           max-width: 100%;
-          color: white;
-          background: #6e90a4;
+          color: #fff;
+          background: #5c798b;
           border-radius: 6px;
           padding: 15px;
           border: none;

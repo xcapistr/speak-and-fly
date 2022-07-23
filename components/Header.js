@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-const Navigation = ({ fixed }) => {
+const Header = ({ fixed }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true)
   const [menuOpened, setMenuOpened] = useState(false)
 
@@ -45,6 +45,7 @@ const Navigation = ({ fixed }) => {
       className={fixed ? 'fixed' : ''}
       style={{
         transform: `translateY(${scrolledToTop && fixed ? '-70px' : '0'})`,
+        opacity: scrolledToTop && fixed ? '0' : '1'
       }}
     >
       {fixed ? (
@@ -75,7 +76,8 @@ const Navigation = ({ fixed }) => {
         </ul>
       </nav>
       <button
-        id="menu-button"
+        id={fixed ? 'menu-button-fixed' : 'menu-button'}
+        aria-label="toggle navigation"
         className={menuOpened ? 'menu-button open' : 'menu-button'}
         onClick={toggleMenu}
       >
@@ -98,7 +100,7 @@ const Navigation = ({ fixed }) => {
         #navigation.fixed {
           background-color: #25325d;
           position: fixed;
-          transition: transform 0.3s ease-out;
+          transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         }
 
         #desktop-navigation > ul {
@@ -228,4 +230,4 @@ const Navigation = ({ fixed }) => {
   )
 }
 
-export default Navigation
+export default Header
