@@ -50,7 +50,7 @@ const Home = props => {
 
 const query = groq`*[_id in ["header", "services", "bio", "certification", "references"]]`
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ locale = 'sk' }) => {
   const data = await client.fetch(query)
   const props = {
     ...data.reduce(
@@ -62,7 +62,7 @@ export const getServerSideProps = async () => {
     ),
     secret: process.env.SECRET
   }
-  console.log('props', props)
+  console.log('props', locale, props)
   return {
     props
   }
