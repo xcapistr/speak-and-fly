@@ -221,7 +221,7 @@ const Header = ({ fixed }) => {
           #desktop-navigation > ul {
             display: flex;
           }
-          #menu-button {
+          #menu-button, #menu-button-fixed {
             display: none;
           }
         }

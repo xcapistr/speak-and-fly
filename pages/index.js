@@ -9,11 +9,11 @@ import {
   Services,
   Certification,
   References,
-  Contact,
+  Contact
 } from '../sections'
 import { Header, Footer } from '../components'
 
-const Home = (props) => {
+const Home = props => {
   return (
     <div className={styles.container}>
       <Head>
@@ -50,21 +50,21 @@ const Home = (props) => {
 
 const query = groq`*[_id in ["header", "services", "bio", "certification", "references"]]`
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const data = await client.fetch(query)
   const props = {
     ...data.reduce(
       (obj, item) => ({
         ...obj,
-        [item._id]: item,
+        [item._id]: item
       }),
-      {},
+      {}
     ),
-    secret: process.env.SECRET,
+    secret: process.env.SECRET
   }
-  console.log('props', props);
+  console.log('props', props)
   return {
-    props,
+    props
   }
 }
 

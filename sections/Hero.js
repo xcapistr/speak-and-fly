@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import NextImage from 'next/image'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-const urlFor = (source) => imageUrlBuilder(client).image(source)
+const urlFor = source => imageUrlBuilder(client).image(source)
 
 const Hero = (props) => {
   const [currentImage, setCurrentImage] = useState(
@@ -27,7 +27,7 @@ const Hero = (props) => {
   }
 
   return (
-    <header id="home">
+    <div id="home">
       <div className="content">
         <h1>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -54,7 +54,7 @@ const Hero = (props) => {
         </div>
       </AnchorLink>
       <style jsx>{`
-          header {
+          #home {
               background-image: url('${currentImage}');
               background-size: cover;
               background-position-x: center;
@@ -164,7 +164,7 @@ const Hero = (props) => {
             }
           }
     `}</style>
-    </header>
+    </div>
   )
 }
 
