@@ -1,36 +1,42 @@
 import Image from 'next/image'
 
-const Footer = () => {
+const Footer = ({ locale, contact }) => {
   return (
     <footer>
       <div className="footer-nav">
         <div className="description">
           <img className="logo" src="/logo3.svg" alt="logo" />
           <p>
-            Speak&fly poskytuje profesionálne kurzy anglického jazyka zamerané
-            na výučbu odbornej angličtiny, odborné preklady a tlmočenie.
+            {locale === 'sk'
+              ? 'Speakandfly poskytuje profesionálne kurzy anglického jazyka zamerané na výučbu odbornej angličtiny, odborné preklady a tlmočenie.'
+              : 'Speakandfly provides professional English language courses focused on Technical, Aviation and Business English as well as technical translations and interpreting.'}
           </p>
         </div>
         <div className="links">
-          <h3>Odkazy</h3>
+          <h3>{locale === 'sk' ? 'Odkazy' : 'Links'}</h3>
           <ul>
-            <li>Kurzy</li>
-            <li>Testovanie</li>
-            <li>Preklady</li>
-            <li><a href="https://www.icao.int/" target="_blank" rel="noreferrer">ICAO</a></li>
-            <li><a href="https://eng-nav.com/" target="_blank" rel="noreferrer">ENG-NAV</a></li>
+            <li>
+              <a href="https://www.icao.int/" target="_blank" rel="noreferrer">
+                ICAO
+              </a>
+            </li>
+            <li>
+              <a href="https://eng-nav.com/" target="_blank" rel="noreferrer">
+                ENG-NAV
+              </a>
+            </li>
           </ul>
         </div>
         <div className="contacts">
-          <h3>Kontakt</h3>
+          <h3>{contact.title[locale]}</h3>
           <ul>
             <li>
               <img src="/call.svg" alt="phone" />
-              <p>+421 324 456 234</p>
+              <p>{contact.phoneValue}</p>
             </li>
             <li>
               <img src="/mail.svg" alt="email" />
-              <p>betty.palockova@gmail.com</p>
+              <p>{contact.emailValue}</p>
             </li>
           </ul>
         </div>
@@ -57,8 +63,9 @@ const Footer = () => {
         .contacts {
           flex: 4;
         }
-        .footer-nav > .links, .footer-nav > .contacts {
-            padding-left: 40px;
+        .footer-nav > .links,
+        .footer-nav > .contacts {
+          padding-left: 40px;
         }
         .links {
           flex: 2;
@@ -113,7 +120,8 @@ const Footer = () => {
           .footer-nav {
             flex-direction: row;
           }
-          .footer-nav > .links, .footer-nav > .contacts {
+          .footer-nav > .links,
+          .footer-nav > .contacts {
             padding-left: 20px;
           }
         }

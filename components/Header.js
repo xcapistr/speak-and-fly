@@ -3,12 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-const Header = ({ fixed }) => {
+const Header = ({ fixed, locale }) => {
   const [scrolledToTop, setScrolledToTop] = useState(true)
   const [menuOpened, setMenuOpened] = useState(false)
 
   const toggleMenu = () => {
-    setMenuOpened((prev) => {
+    setMenuOpened(prev => {
       document.body.style.overflow = prev ? 'unset' : 'hidden'
       return !prev
     })
@@ -32,11 +32,14 @@ const Header = ({ fixed }) => {
   }, [scrolledToTop])
 
   const navItems = [
-    { href: '#services', label: 'Služby' },
-    { href: '#bio', label: 'O mne' },
-    { href: '#certification', label: 'Certifikáty' },
-    { href: '#references', label: 'Referencie' },
-    { href: '#contact', label: 'Kontakt' },
+    { href: '#services', label: { sk: 'Služby', en: 'Services' } },
+    { href: '#bio', label: { sk: 'O mne', en: 'About me' } },
+    {
+      href: '#certification',
+      label: { sk: 'Certifikáty', en: 'Further qualifications' }
+    },
+    { href: '#references', label: { sk: 'Referencie', en: 'References' } },
+    { href: '#contact', label: { sk: 'Kontakt', en: 'Contact' } }
   ]
 
   return (
@@ -59,7 +62,7 @@ const Header = ({ fixed }) => {
         <ul>
           {navItems.map((n, i) => (
             <li key={`${i}-${n.label}`}>
-              <AnchorLink href={n.href}>{n.label}</AnchorLink>
+              <AnchorLink href={n.href}>{n.label[locale]}</AnchorLink>
             </li>
           ))}
         </ul>
@@ -69,7 +72,7 @@ const Header = ({ fixed }) => {
           {navItems.map((n, i) => (
             <li key={`${i}-${n.label}`}>
               <AnchorLink href={n.href} onClick={toggleMenu}>
-                {n.label}
+                {n.label[locale]}
               </AnchorLink>
             </li>
           ))}
@@ -221,7 +224,8 @@ const Header = ({ fixed }) => {
           #desktop-navigation > ul {
             display: flex;
           }
-          #menu-button, #menu-button-fixed {
+          #menu-button,
+          #menu-button-fixed {
             display: none;
           }
         }

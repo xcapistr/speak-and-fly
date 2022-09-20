@@ -7,7 +7,7 @@ const urlFor = (source) => imageUrlBuilder(client).image(source)
 const References = (props) => {
   return (
     <section id="references">
-      <h2>{props.title.sk}</h2>
+      <h2>{props.title[props.locale]}</h2>
       <div className="references-wrapper">
         {props.items.map((r) => (
           <a key={r._key} className="reference" href={r.link}>

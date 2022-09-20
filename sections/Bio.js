@@ -8,7 +8,7 @@ const urlFor = (source) => imageUrlBuilder(client).image(source)
 const BioSection = (props) => {
   return (
     <section id="bio" className="bio-section">
-      <h2>{props.title.sk}</h2>
+      <h2>{props.title[props.locale]}</h2>
       <div className="bio-row">
         <div className="image-wrapper">
           <Image
@@ -21,7 +21,7 @@ const BioSection = (props) => {
         </div>
         <div>
           <BlockContent
-            blocks={props.about.sk}
+            blocks={props.about[props.locale]}
             imageOptions={{ w: 320, h: 240, fit: 'max' }}
             {...client.config()}
           />
@@ -32,7 +32,7 @@ const BioSection = (props) => {
           <div>
             <BlockContent
               className="left-paragraph"
-              blocks={props.leftParagraph.sk}
+              blocks={props.leftParagraph[props.locale]}
               imageOptions={{ w: 320, h: 240, fit: 'max' }}
               {...client.config()}
             />
@@ -40,7 +40,7 @@ const BioSection = (props) => {
           <div>
             <BlockContent
               className="right-paragraph"
-              blocks={props.rightParagraph.sk}
+              blocks={props.rightParagraph[props.locale]}
               imageOptions={{ w: 320, h: 240, fit: 'max' }}
               {...client.config()}
             />

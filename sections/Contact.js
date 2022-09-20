@@ -1,9 +1,19 @@
 import { ContactForm, CopyButton } from '../components'
 
-const Contact = (props) => {
+const Contact = ({
+  secret,
+  locale,
+  title,
+  locationTitle,
+  locationDescription,
+  emailTitle,
+  emailValue,
+  phoneTitle,
+  phoneValue
+}) => {
   return (
     <section id="contact">
-      <h2>Kontakt</h2>
+      <h2>{title[locale]}</h2>
       <div className="contact-wrapper">
         <div>
           <div className="contact-info">
@@ -11,38 +21,35 @@ const Contact = (props) => {
               <div className="icon-wrapper">
                 <img src="/location.svg" alt="location" />
               </div>
-              <h3>Pôsobisko</h3>
-              <p>
-                Pôsobím <b>v Poprade</b>, ale môj pracovný okruh je oveľa väčší
-                a nemám problém viesť kurzy v mieste sídla klienta.
-              </p>
+              <h3>{locationTitle[locale]}</h3>
+              <p>{locationDescription[locale]}</p>
             </div>
             <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/mail.svg" alt="email" />
               </div>
-              <h3>Email</h3>
+              <h3>{emailTitle[locale]}</h3>
               <p>
-                <a href="mailto:palockova.betty@gmail.com">
-                  palockova.betty@gmail.com
-                </a>
-                <CopyButton text="palockova.betty@gmail.com"/>
+                <a href="mailto:palockova.betty@gmail.com">{emailValue}</a>
+                <CopyButton text="palockova.betty@gmail.com" />
               </p>
             </div>
             <div className="contact-item">
               <div className="icon-wrapper">
                 <img src="/call.svg" alt="phone" />
               </div>
-              <h3>Telefón</h3>
+              <h3>{phoneTitle[locale]}</h3>
               <p>
-                +421 907 477 763
-                <CopyButton text="+421 907 477 763"/>
+                <a href={`tel:${phoneValue.replaceAll(' ', '')}`}>
+                  {phoneValue}
+                </a>
+                <CopyButton text={phoneValue} />
               </p>
             </div>
           </div>
         </div>
         <div>
-          <ContactForm secret={props.secret}/>
+          <ContactForm secret={secret} locale={locale}/>
         </div>
       </div>
       <style jsx>{`

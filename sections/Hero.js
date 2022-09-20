@@ -34,7 +34,7 @@ const Hero = (props) => {
           <img className="logo" src="/logo-simple.svg" alt="logo" />
           speak<span>&</span>fly
         </h1>
-        <p>Na krídlach angličtiny</p>
+        <p>{props.subtitle[props.locale]}</p>
       </div>
       <div className="mask">
         <div></div>

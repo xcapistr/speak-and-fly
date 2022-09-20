@@ -2,19 +2,19 @@ import { ServiceCard } from '../components'
 import client from '../sanityClient'
 import imageUrlBuilder from '@sanity/image-url'
 
-const urlFor = (source) => imageUrlBuilder(client).image(source)
+const urlFor = source => imageUrlBuilder(client).image(source)
 
-const Services = (props) => {
+const Services = props => {
   return (
     <section id="services">
-      <h2>{props.title.sk}</h2>
+      <h2>{props.title[props.locale]}</h2>
       <div className="services-wrapper">
-        {props.items.map((i) => (
+        {props.items.map(i => (
           <ServiceCard
             key={i._key}
-            title={i.title.sk}
-            subtitle={i.subtitle.sk}
-            description={i.description.sk}
+            title={i.title[props.locale]}
+            subtitle={i.subtitle[props.locale]}
+            description={i.description[props.locale]}
             image={urlFor(i.image).url()}
           />
         ))}
@@ -29,13 +29,13 @@ const Services = (props) => {
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             padding: 10px;
+            align-items: stretch;
           }
           @media only screen and (min-width: 800px) {
-              .services-wrapper {
-                flex-direction: row;
-              }
+            .services-wrapper {
+              flex-direction: row;
+            }
           }
         `}
       </style>

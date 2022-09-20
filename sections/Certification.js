@@ -19,13 +19,13 @@ const Certification = (props) => {
 
   return (
     <section id="certification" className="certification-section">
-      <h2>{props.title.sk}</h2>
+      <h2>{props.title[props.locale]}</h2>
       <div className="certification-list">
         {items.map((c) => (
           <CertificationRow
             key={c._key}
-            name={c.name?.sk}
-            institution={c.institution?.sk}
+            name={c.name?.[props.locale]}
+            institution={c.institution?.[props.locale]}
             year={c.year}
             right={c.right}
           />

@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Spinner } from '.'
 
-const ContactForm = ({ secret }) => {
+const ContactForm = ({ secret, locale }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -9,7 +9,9 @@ const ContactForm = ({ secret }) => {
   const [isSuccess, setIsSuccess] = useState(false)
   const [validations, setValidations] = useState({})
 
-  const handleSubmit = async (e) => {
+  const isSk = useMemo(() => locale === 'sk', [locale])
+
+  const handleSubmit = async e => {
     e.preventDefault()
     setIsSuccess(false)
     if (!validate()) return
@@ -20,8 +22,8 @@ const ContactForm = ({ secret }) => {
         email,
         name,
         message,
-        secret,
-      }),
+        secret
+      })
     })
     if (response.status === 200) {
       setIsSuccess(true)
@@ -32,15 +34,17 @@ const ContactForm = ({ secret }) => {
   const validate = () => {
     const result = {}
     if (!name) {
-      result.name = 'Vyplňte meno'
+      result.name = isSk ? 'Vyplňte meno' : 'Fill your name'
     }
     if (!email) {
-      result.email = 'Vyplňte email'
+      result.email = isSk ? 'Vyplňte email' : 'Fill your email'
     } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      result.email = 'Zadaná e-mailová adresa je nevalidná'
+      result.email = isSk
+        ? 'Zadaná e-mailová adresa je nevalidná'
+        : 'Email address is not valid'
     }
     if (!message) {
-      result.message = 'Vypňte správu'
+      result.message = isSk ? 'Vypňte správu' : 'Fill your message'
     }
     setValidations(result)
     return !Object.keys(result).length
@@ -48,16 +52,16 @@ const ContactForm = ({ secret }) => {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h3>Kontaktný formulár</h3>
+      <h3>{isSk ? 'Kontaktný formulár' : 'Contact form'}</h3>
       <div className="column">
-        <p>Meno*</p>
+        <p>{isSk ? 'Meno*' : 'Name*'}</p>
         <input
           className={validations.name ? 'error' : ''}
           type="text"
           autoCapitalize="words"
-          placeholder="Meno a priezvisko"
+          placeholder={isSk ? 'Meno a priezvisko' : 'Full name'}
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
         <p className="validation-message">{validations.name}</p>
       </div>
@@ -68,17 +72,17 @@ const ContactForm = ({ secret }) => {
           type="email"
           placeholder="E-mail"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
         <p className="validation-message">{validations.email}</p>
       </div>
-      <p>Správa*</p>
+      <p>{isSk ? 'Správa*' : 'Message*'}</p>
       <textarea
         className={validations.message ? 'error' : ''}
         rows={5}
-        placeholder="Napíšte text správy"
+        placeholder={isSk ? 'Napíšte text správy' : 'Write your message'}
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={e => setMessage(e.target.value)}
       />
       <p className="validation-message">{validations.message}</p>
       <button
@@ -86,9 +90,21 @@ const ContactForm = ({ secret }) => {
         disabled={isLoading || isSuccess}
         style={{ cursor: isLoading || isSuccess ? 'not-allowed' : 'pointer' }}
       >
-        {isLoading || isSuccess ? <Spinner done={isSuccess} /> : 'Odoslať'}
+        {isLoading || isSuccess ? (
+          <Spinner done={isSuccess} />
+        ) : isSk ? (
+          'Odoslať'
+        ) : (
+          'Send'
+        )}
       </button>
-      {isSuccess && <p className="success-message">Ďakujeme, vaša správa bola odoslaná. Čoskoro vás budeme kontaktovať.</p>}
+      {isSuccess && (
+        <p className="success-message">
+          {isSk
+            ? 'Ďakujeme, vaša správa bola odoslaná. Čoskoro vás budeme kontaktovať.'
+            : 'Thank you, your message has been sent. We will contact you soon.'}
+        </p>
+      )}
       <style jsx>{`
         .contact-form {
           padding: 10px;
