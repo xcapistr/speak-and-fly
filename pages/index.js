@@ -131,6 +131,7 @@ const Home = props => {
 
 const query = groq`*[_id in ["header", "services", "bio", "certification", "references", "contact"]]`
 
+// export const getStaticProps = async () => {
 export const getServerSideProps = async () => {
   const data = await client.fetch(query)
   const props = {
