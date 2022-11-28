@@ -35,6 +35,7 @@ const Services = props => {
           @media only screen and (min-width: 800px) {
             .services-wrapper {
               flex-direction: row;
+              align-items: flex-start;
             }
           }
         `}
